@@ -16,6 +16,6 @@ const connect = async () => {
     console.error("PostgreSQL connection error:", error);
     process.exit(1);
   }
-};
+}; 
 
 export { sequelize, connect };
