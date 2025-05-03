@@ -16,6 +16,17 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
+export const deleteAllUsers = async (req, res) => {
+    try {
+        await User.destroy({ where: {} }); // Apaga todos os usuários no banco
+        console.log("All users deleted");
+        res.status(200).json({ message: "All users have been deleted" });
+    } catch (error) {
+        console.error("Error deleting users:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
 export const register = async (req, res) => {
     console.log("Registering user", req.body.username);
     console.log
